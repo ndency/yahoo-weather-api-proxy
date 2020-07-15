@@ -1,7 +1,11 @@
 {
   "version": 2,
-  "name": "yahoo-weather-api-proxy",
-  "builds": [{ "src": "*.js", "use": "@now/node" }],
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@vercel/node"
+    }
+  ],
   "env": {
     "YAHOO_APP_ID": "@yahoo-app-id",
     "YAHOO_CONSUMER_KEY": "@yahoo-consumer-key",
@@ -12,7 +16,8 @@
       "headers": {
         "Access-Control-Allow-Origin": "http://localhost:3000",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept",
+        "Content-Type": "application/json"
       },
       "src": "/(.*)",
       "dest": "/index.js"
